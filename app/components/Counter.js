@@ -17,10 +17,13 @@ class Counter extends React.Component {
   onClick(txt, evt){
     let fn = txt == 'Increment' ? incrementCounter : decrementCounter;
     this.store.dispatch(fn());
-
-    // Debugging
+  }
+  componentWillMount() {
     let store = this.store;
-    setTimeout(() => console.log(store.getState()), 500);
+    let self = this;
+    store.subscribe(() => self.setState({
+      counter: store.getState()
+    }));
   }
   render () {
     return <div>
