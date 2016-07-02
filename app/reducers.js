@@ -4,9 +4,9 @@ function counterReducer(state=0, action){
 
   switch (action.type) {
   case INCREMENT_COUNTER:
-    return undefined;
+    return state + 1;
   case DECREMENT_COUNTER:
-    return undefined;
+    return state - 1;
   default:
     return state;
   }
