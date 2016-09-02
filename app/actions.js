@@ -1,11 +1,19 @@
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const ADD_TODO = 'ADD_TODO'
+export const REMOVE_TODO = 'REMOVE_TODO'
 
-let incrementCounter = () => {
-  return {type: INCREMENT_COUNTER};
-};
-let decrementCounter = () => {
-  return {type: DECREMENT_COUNTER};
+let addTodo = (body) => {
+  return {type: ADD_TODO };
 };
 
-export {incrementCounter, decrementCounter};
+let textChange = (text) => {
+  return {
+    type: 'TEXT_CHANGE',
+    text: text
+  }
+}
+
+let removeTodo = (body) => {
+  return {type: REMOVE_TODO };
+};
+
+export { addTodo, removeTodo, textChange };

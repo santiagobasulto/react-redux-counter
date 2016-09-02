@@ -1,14 +1,29 @@
-import {INCREMENT_COUNTER, DECREMENT_COUNTER} from './actions';
+import {ADD_TODO} from './actions';
 
-function counterReducer(state=0, action){
+function todoReducer(state, action){
   switch (action.type) {
-  case INCREMENT_COUNTER:
-    return state + 1;
-  case DECREMENT_COUNTER:
-    return state - 1;
+  case 'TEXT_CHANGE':
+    return {
+      todos: state.todos,
+      todoText: action.text
+    }
+  case ADD_TODO:
+    return {
+      todos: state.todos.concat([{
+        todo: state.todoText,
+        finished: false
+      }]),
+      todoText: ''
+    };
   default:
-    return state;
+    return {
+      todos: [{
+        todo: 'Chau',
+        finished: false
+      }],
+      todoText: 'belen'
+    };
   }
 }
 
-export {counterReducer};
+export {todoReducer};

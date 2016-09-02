@@ -1,14 +1,14 @@
 import React from 'react';
 import { createStore } from 'redux'
 
-import Counter from './components/Counter';
-import {counterReducer} from './reducers';
+import Todo from './components/Todo';
+import {todoReducer} from './reducers';
 
-let store = createStore(counterReducer);
+let store = createStore(todoReducer);
 
 class App extends React.Component {
   render() {
-    return <Counter store={store} />
+    return <Todo store={store} />
   }
 }
 
